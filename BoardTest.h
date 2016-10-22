@@ -15,5 +15,6 @@
 #include "sput.h"
 
 void runBoardTests();
-void test_boardInit();
+void test_createSquare();
+void test_createBoard();
 #endif

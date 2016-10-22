@@ -13,7 +13,7 @@
 int main(int argc, const char * argv[])
 {
     // insert code here...
-    if(strcmp(argv[0], "TEST") == 0){
+    if(strcmp(argv[1], "TEST") == 0){
         runTests();
     } else {
         
