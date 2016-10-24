@@ -10,7 +10,7 @@
 #include <stdlib.h>
 
 #include "Board.h"
-//d
+
 struct board {
     Square **board;
     Board parentBoard;
@@ -19,20 +19,67 @@ struct board {
 struct boardPosition {
     uint32_t posX;
     uint32_t posY;
-};
-
-struct boardPositionNode {
-    BoardPosition p;
     BoardPosition next;
 };
 
+
 struct boardPositionSeries {
-    BoardPositionNode head;
+    BoardPosition head;
 };
 
 struct square {
     Visted visted;
 };
+
+BoardPositionSeries createBoardPositionSeries(){
+    BoardPositionSeries bps = (BoardPositionSeries) malloc(sizeof(*bps));
+    bps->head = NULL;
+    return bps;
+}
+
+void addBoardPositionToSeries(BoardPositionSeries bps, BoardPosition bp){
+    BoardPosition curr = NULL;
+    curr = bps->head;
+    
+    if(curr == NULL){
+        bps->head = bp;
+        return;
+    }
+    
+    while(curr->next != NULL){
+        curr = curr->next;
+    }
+    curr->next = bp;
+}
+
+
+uint32_t getBoardPositionX(BoardPosition bp){
+    return bp->posX;
+}
+
+uint32_t getBoardPositionY(BoardPosition bp){
+    return bp->posY;
+}
+BoardPosition getBoardPositionFromSeries(BoardPositionSeries bps, int i){
+    int x;
+    BoardPosition bp = bps->head;
+    for(x=0; x < i; x++){
+        if (bp == NULL) {
+            printf("Out of range error.");
+            return NULL;
+        }
+        bp = bp->next;
+    }
+    return bp;
+}
+
+BoardPosition createBoardPosition(int x, int y){
+    BoardPosition bp = (BoardPosition) malloc(sizeof(*bp));
+    bp->next = NULL;
+    bp->posX = x;
+    bp->posY = y;
+    return bp;
+}
 
 Board createBoard(uint32_t size){
     Board b = (Board) checkMalloc(malloc(sizeof(*b)));

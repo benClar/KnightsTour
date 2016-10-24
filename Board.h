@@ -18,12 +18,17 @@ typedef enum Visted Visted;
 typedef struct board *Board;
 typedef struct square *Square;
 typedef struct boardPosition *BoardPosition;
-typedef struct boardPositionNode *BoardPositionNode;
 typedef struct boardPositionSeries *BoardPositionSeries;
 
 Board createBoard(uint32_t size);
 Square getSquareByArrayIndex(Board b, int row, int col);
 Square createSquare();
 bool isVisited(Square s);
+void addBoardPositionToSeries(BoardPositionSeries bps, BoardPosition bp);
+BoardPosition getBoardPositionFromSeries(BoardPositionSeries bps, int i);
+BoardPosition createBoardPosition(int x, int y);
+BoardPositionSeries createBoardPositionSeries();
+uint32_t getBoardPositionX(BoardPosition bp);
+uint32_t getBoardPositionY(BoardPosition bp);
 
 #endif

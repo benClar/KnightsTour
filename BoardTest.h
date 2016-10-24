@@ -17,4 +17,5 @@
 void runBoardTests();
 void test_createSquare();
 void test_createBoard();
+void test_addBoardPosition();
 #endif
