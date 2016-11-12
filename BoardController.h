@@ -11,8 +11,14 @@
 
 #include "Board.h"
 
-struct boardContainer* BoardContainer;
-struct boardSeries* BoardSeries;
+typedef struct boardContainer* BoardContainer;
+typedef struct boardSeries* BoardSeries;
 
+BoardContainer createContainer(Board board);
+BoardSeries createSeries(Board initialBoard);
+int boardChainLength(BoardContainer bc);
+bool isComplete(BoardSeries bs);
+BoardPosition* getAllValidMoves(BoardContainer bc);
+BoardContainer getTail(BoardSeries bs);
 
 #endif

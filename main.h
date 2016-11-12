@@ -8,7 +8,8 @@
 
 #ifndef KnightsTour_main_h
 #define KnightsTour_main_h
-
+#include "BoardController.h"
+#include "Board.h"
 
 
 #endif

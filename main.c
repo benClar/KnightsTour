@@ -8,6 +8,7 @@
 
 #include <stdio.h>
 
+#include "main.h"
 #include "Tests.h"
 
 int main(int argc, const char * argv[])
@@ -19,6 +20,15 @@ int main(int argc, const char * argv[])
         
     }
     return 0;
+}
+
+void start(){
+    Board initial = createBoard(5, NULL, createBoardPosition(0, 0));
+    BoardSeries bs =  createSeries(initial);
+    while(isComplete(bs) != true) {
+        BoardPosition *allMoves = getAllValidMoves(getTail(bs));
+    }
+    
 }
 
 void run(){
